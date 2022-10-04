@@ -32,9 +32,13 @@
         }
         function setUetMsdns(){
             document.cookie = "_uetmsdns=1";
+            const consentSpan = document.getElementById('uetmsdns-span');
+            consentSpan.textContent = "1";
         }
-        function removeUetMsdns(){
+        function removeUetMsdns(){            
             document.cookie = "_uetmsdns=0";
+            const consentSpan = document.getElementById('uetmsdns-span');
+            consentSpan.textContent = "0";
         }
     </script>
 </head>
@@ -51,7 +55,7 @@
         <p>This will set a first party cookie as _uetmsdns with the value of 1. UET will not fire under this condition.</p>
         <button onclick="setUetMsdns()">Add uetmsdns</button>
         <button onclick="removeUetMsdns()">Remove uetmsdns</button>
-        <p>_uetmsdns: <span>N/A</span></p>
+        <p>_uetmsdns: <span id="uetmsdns-span">N/A</span></p>
     </section>
     <section id="fireuet">
         <h1>Fire UET Event</h1>
