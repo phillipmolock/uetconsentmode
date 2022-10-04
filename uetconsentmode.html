@@ -17,6 +17,12 @@
         function fireUET(){
             (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"25079728"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");
         }
+        function setUetMsdns(){
+            document.cookie("_uetmsdns=1")
+        }
+        function removeUetMsdns(){
+            document.cookie("_uetmsdns=0")
+        }
     </script>
 </head>
 <body>
@@ -30,8 +36,8 @@
     <section id="uetmsdns">
         <h1>Toggle on or off uetmsdns first party cookie</h1>
         <p>This will set a first party cookie as _uetmsdns with the value of 1. UET will not fire under this condition.</p>
-        <button>Add uetmsdns</button>
-        <button>Remove uetmsdns</button>
+        <button onclick="setUetMsdns()">Add uetmsdns</button>
+        <button onclick="removeUetMsdns()">Remove uetmsdns</button>
         <p>_uetmsdns: <span>N/A</span></p>
     </section>
     <section id="fireuet">
