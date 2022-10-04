@@ -5,19 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UET Consent Mode</title>
+    <script>
+        function consentModeOn(){
+            const consentSpan = document.getElementById('consent-span');
+            consentSpan.textContent = "On"
+        }
+        function consentModeOff(){
+            const consentSpan = document.getElementById('consent-span');
+            consentSpan.textContent = "Off"
+        }
+    </script>
 </head>
 <body>
     <header>UET Consent Mode Demo</header>
     <section id="consent">
         <h1>Toggle on or off consent mode</h1>
-        <button>Consent Mode On</button>
-        <button>Consent Mode Off</button>
+        <button onclick="consentModeOn()">Consent Mode On</button>
+        <button onclick="consentModeOff()">Consent Mode Off</button>
+        <p>Consent mode: <span id="consent-span">on</span></p>
     </section>
     <section id="uetmsdns">
         <h1>Toggle on or off uetmsdns first party cookie</h1>
         <p>This will set a first party cookie as _uetmsdns with the value of 1. UET will not fire under this condition.</p>
         <button>Add uetmsdns</button>
         <button>Remove uetmsdns</button>
+        <p>_uetmsdns: <span>N/A</span></p>
     </section>
     <section id="fireuet">
         <h1>Fire UET Event</h1>
