@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UET Consent Mode</title>
     <script>
+        let uetHasFired = false;
         function consentModeOn(){
             const consentSpan = document.getElementById('consent-span');
             consentSpan.textContent = "On";
@@ -24,11 +25,15 @@
         }
         function fireUET(){
             (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"25079728"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");
-            // Set default consent mode to denied
-            window.uetq = window.uetq || [];
-            window.uetq.push('consent', 'default', {
-            'ad_storage': 'denied'
-    });
+            if (!uetHasFired) {
+                // Set default consent mode to denied
+                window.uetq = window.uetq || [];
+                window.uetq.push('consent', 'default', {
+                'ad_storage': 'denied'
+                });
+                uetHasFired == true;
+            }
+
         }
         function setUetMsdns(){
             document.cookie = "_uetmsdns=1";
